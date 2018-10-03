@@ -7,11 +7,32 @@
  *
  * @see <a href="https://cs125.cs.illinois.edu/lab/5/">Lab 5 Description</a>
  */
-public class Bank {
+public final class Bank {
 
-    public String bankName;
+    /**
+     * Gets bank name.
+     * @return bankName
+     */
+    public String getBankName() {
+        return bankName;
+    }
 
-    public Bank() {
+    /**
+     * @param setBankName sets name of bank
+     */
+    public void setBankName(final String setBankName) {
+        bankName = setBankName;
+    }
+
+    /**
+     * The name of the bank.
+     */
+    private String bankName;
+
+    /**
+     * Setting the name of the bank.
+     */
+    private Bank() {
         bankName = "Illini Bank";
     }
 
@@ -29,6 +50,13 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (bankAccount.getAccountBalance() - amount >= 0) {
+            bankAccount.setAccountBalance(bankAccount.getAccountBalance() - amount);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     /**
@@ -45,6 +73,8 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setAccountBalance(bankAccount.getAccountBalance() + amount);
+        return true;
     }
 
     /**
@@ -64,6 +94,13 @@ public class Bank {
         /*
          * Implement this function
          */
+        if (source.getAccountBalance() - amount >= 0) {
+            source.setAccountBalance(source.getAccountBalance() - amount);
+            destination.setAccountBalance(destination.getAccountBalance() + amount);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -77,9 +114,10 @@ public class Bank {
         /*
          * Implement this function
          */
+        bankAccount.setOwnerName(name);
     }
 
-    public static int totalAccounts = 0;
+    private static int totalAccounts = 0;
     /**
      * Uses static variable to get number of bank accounts opened.
      *
@@ -89,6 +127,8 @@ public class Bank {
         /*
          * Implement this function
          */
+        totalAccounts = BankAccount.bankAccountCounter;
+        return totalAccounts;
     }
 
     /**

@@ -13,23 +13,55 @@ public class BankAccount {
      * You may want to use this to distinguish between different kinds of accounts.
      */
     public enum BankAccountType {
+        /**
+         * Checking account.
+         */
         CHECKINGS,
+        /**
+         * Savings account.
+         */
         SAVINGS,
+        /**
+         * Account for students.
+         */
         STUDENT,
+        /**
+         * Work account.
+         */
         WORKPLACE
     }
 
+    public static int bankAccountCounter;
     private int accountNumber;
-    public BankAccountType accountType;
+    private BankAccountType accountType;
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(final double setAccountBalance) {
+        this.accountBalance = setAccountBalance;
+    }
+
     private double accountBalance;
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(final String setOwnerName) {
+        this.ownerName = setOwnerName;
+    }
+
     private String ownerName;
-    public double interestRate;
+    private double interestRate;
     private double interestEarned;
 
     public BankAccount(final String name, final BankAccountType accountCategory) {
         /*
          * Implement this function
          */
+        bankAccountCounter++;
     }
 
     /*
